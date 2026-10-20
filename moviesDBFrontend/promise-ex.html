@@ -1,0 +1,58 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.20.0/axios.min.js"></script>
+<script>
+  let apiPath1 = "https://fakestoreapi.com/products/1";
+  let apiPath2 = "https://fakestoreapi.com/products/2";
+  let apiPath3 = "https://fakestoreapi.com/products/3";
+
+  // check one condition at a time
+
+  // Condition 1
+  axios.get(apiPath1).then((res) => {
+    console.log(res);
+  });
+
+  axios.get(apiPath2).then((res) => {
+    console.log(res);
+  });
+
+  axios.get(apiPath3).then((res) => {
+    console.log(res);
+  });
+
+  // Condition 2
+  Promise.all([axios.get(apiPath1), axios.get(apiPath2), axios.get(apiPath3)])
+
+    .then((result) => {
+      console.log(results);
+    })
+
+    .catch((error) => {
+      console.log(error);
+    });
+
+  // Condition 3
+//   Promise.allSettled([
+//     axios.get(apiPath1),
+//     axios.get(apiPath2),
+//     axios.get(apiPath3),
+//   ])
+
+//     .then((results) => {
+//       console.log(results);
+//     })
+
+//     .catch((error) => {
+//       console.log(error);
+//     });
+
+  // Condition 4
+//   Promise.race([axios.get(apiPath1), axios.get(apiPath2), axios.get(apiPath3)])
+
+//     .then((results) => {
+//       console.log(results);
+//     })
+
+//     .catch((error) => {
+//       console.log(error);
+//     });
+</script>
